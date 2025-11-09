@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LinkedIn Redirect</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: linear-gradient(135deg, #0077b5 0%, #00a0dc 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            color: white;
+        }
+        .container {
+            text-align: center;
+            padding: 2rem;
+        }
+        .logo {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+        }
+        h1 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+        .spinner {
+            border: 4px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            border-top: 4px solid white;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            margin: 2rem auto;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        .fallback {
+            margin-top: 2rem;
+        }
+        a {
+            color: white;
+            text-decoration: underline;
+            font-size: 1.1rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="logo">in</div>
+        <h1>Redirecting to LinkedIn...</h1>
+        <div class="spinner"></div>
+        <div class="fallback">
+            <p>If you're not redirected automatically, <a href="https://www.linkedin.com" id="manualLink">click here</a></p>
+        </div>
+    </div>
+    <script>
+        // Redirect immediately
+        window.location.href = 'https://www.linkedin.com';
+
+        // Fallback for manual click
+        document.getElementById('manualLink').addEventListener('click', function(e) {
+            e.preventDefault();
+            window.open('https://www.linkedin.com', '_blank');
+        });
+    </script>
+</body>
+</html>
